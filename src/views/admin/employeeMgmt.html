@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quyển Lịch</title>
+    <link rel="stylesheet" href="/public/css/employeeMgmt.css">
+</head>
+
+<body>
+    <header>
+        <div class="left-container">
+            <a href="index.html" class="logo"><img src="/public/images/logo-main.jpg" class="logo"></a>
+            <div><a href="index.html" style="text-decoration: none; color: #000;">Quản lí lịch làm việc</a></div>
+            <div><a href="#" style="text-decoration: none; color: #000;">Quản lí nhân viên</a></div>
+            <div><a href="approveMgmt.html" style="text-decoration: none; color: #000;">Thông tin phê duyệt</a></div>
+            <div><a href="PayrollMgmt.html" style="text-decoration: none; color: #000;">Quản lí lương</a></div>
+            <div><a href="rules-settings.html" style="text-decoration: none; color: #000;">Thiết lập quy định</a></div>
+        </div>
+        <div class="right-container">
+            <div class="icon-container" id="menuButton">
+                &#128100;
+            </div>
+            <ul class="dropdown-menu" id="menuDropdown">
+                <li><a href="ChangePassword.html" style="text-decoration: none; color: #000;">Đổi mật khẩu</a></li>
+                <li><a onclick="logout()" style="color: red;">Đăng xuất</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="search-box">
+            <input type="number" id="maNhanVien" placeholder="Nhập mã nhân viên">
+            <input type="text" id="hoTen" placeholder="Nhập họ tên">
+            <select id="maPhongBan">
+                <option value="">-- Chọn phòng ban --</option>
+                <option value="1">hành chính</option>
+                <option value="2">kế toán</option>
+            </select>
+            <input type="text" id="chucvu" placeholder="Nhập chức vụ">
+            <button onclick="loadNhanVien(1)">🔍 Tìm kiếm</button>
+            <button onclick="formThem()" class="add-btn">➕ Thêm Nhân Viên</button>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mã NV</th>
+                        <th>Họ Tên</th>
+                        <th>Ngày Sinh</th>
+                        <th>Giới Tính</th>
+                        <th>SĐT</th>
+                        <th>Email</th>
+                        <th>Phòng Ban</th>
+                        <th>Chức Vụ</th>
+                        <th>Ngày Vào Làm</th>
+                        <th>Lương Cơ Bản</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody id="nhanVienTable"></tbody>
+            </table>
+        </div>
+
+
+        <div class="overlay" id="overlay" onclick="closeForm()"></div>
+
+        <div class="formsua" id="formsua">
+            <a class="close-btn" onclick="closeForm()">❌</a>
+            <h3>Chỉnh sửa thông tin</h3>
+            <form id="editForm">
+                <div class="form-group">
+                    <label>Mã NV:</label>
+                    <input type="text" id="MaNV" readonly style="color: #7c7c7c;">
+                </div>
+
+                <div class="form-group">
+                    <label>Chức vụ:</label>
+                    <input type="text" id="chucVu">
+                </div>
+
+                <div class="form-group">
+                    <label>Phòng ban:</label>
+                    <select id="phongBan">
+                        <option>hành chính</option>
+                        <option>kế toán</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Lương:</label>
+                    <input type="text" id="luong">
+                </div>
+
+                <button class="btluu" type="button" onclick="luuChinhSua()">Lưu</button>
+            </form>
+        </div>
+
+        <div class="formthem" id="formThem">
+            <a class="close-btn" onclick="closeForm()">❌</a>
+            <h3>Thêm nhân viên</h3>
+            <form id="createForm">
+                <div class="form-group">
+                    <label>Họ Tên:</label>
+                    <input type="text" id="name">
+                </div>
+
+                <div class="form-group">
+                    <label>Ngày sinh:</label>
+                    <input type="date" id="ngaySinh">
+                </div>
+
+                <div class="form-group">
+                    <label>Giới tính:</label>
+                    <select id="gioiTinh">
+                        <option>Nam</option>
+                        <option>Nữ</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>SĐT:</label>
+                    <input type="tel" id="sdt">
+                </div>
+
+                <div class="form-group">
+                    <label>Email:</label>
+                    <input type="text" id="email">
+                </div>
+
+                <div class="form-group">
+                    <label>Phòng ban:</label>
+                    <select id="phongBan2">
+                        <option value="1">hành chính</option>
+                        <option value="2">kế toán</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Chức vụ:</label>
+                    <input type="text" id="ChucVu">
+                </div>
+
+                <div class="form-group">
+                    <label>Lương:</label>
+                    <input type="text" id="Luong">
+                </div>
+
+                <button class="btluu" type="button" onclick="themNhanVien()">Thêm</button>
+            </form>
+        </div>
+        <div class="pagination">
+            <button onclick="prevPage()">⬅️ Trước</button>
+            <span id="pageInfo">Trang 1</span>
+            <button onclick="nextPage()">Tiếp ➡️</button>
+        </div>
+    </div>
+
+    <script src="/public/js/employeeMgmt.js"></script>
+</body>
+
+</html>

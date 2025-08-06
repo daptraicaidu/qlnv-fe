@@ -1,0 +1,636 @@
+/* === Reset và Base Styles === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: #f0f2f5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* === Header === */
+header {
+  background: white;
+  height: 70px;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+
+}
+
+.left-container {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.left-container a.logo img {
+  height: 50px;
+  transition: transform 0.3s ease;
+}
+
+.left-container a.logo:hover img {
+  transform: scale(1.05);
+}
+
+.left-container div {
+  padding: 0.8rem 1.2rem;
+  /* border-radius: 8px; */
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.left-container div::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: #007bff;
+  transition: width 0.3s ease;
+}
+
+.left-container div:hover::before {
+  width: 100%;
+}
+
+
+
+/* Right header */
+
+.right-container {
+  display: flex;
+  align-items: center;
+}
+
+.icon-container {
+  width: 40px;
+  height: 40px;
+  background-color: #e0e0e0;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  margin-left: 20px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  background-color: white;
+  width: 200px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  /* Ẩn ban đầu và chuẩn bị cho animation */
+  max-height: 0;
+  overflow: hidden;
+  transform: translateY(-10px);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.dropdown-menu.active {
+  max-height: 500px;
+  /* Giá trị lớn hơn chiều cao thực tế */
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.dropdown-menu li {
+  list-style: none;
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #ddd;
+  transition: background-color 0.2s;
+}
+
+.dropdown-menu li:last-child {
+  border-bottom: none;
+}
+
+.dropdown-menu li:hover {
+  background-color: #f0f0f0;
+}
+
+
+/* === Main Container === */
+.container {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  /* grid-template-columns: repeat(auto-fit, minmax(200px, auto)); */
+  gap: 2rem;
+  padding: 2rem;
+  position: relative;
+}
+
+.body {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* === Calendar Section === */
+
+.calendar {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem 0.8rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  height: fit-content;
+  display: grid;
+  overflow-y: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  margin-top: 15px;
+  margin-bottom: 1rem;
+}
+
+.day {
+  text-align: center;
+  padding: 0.5rem;
+  font-weight: 600;
+  color: #666;
+}
+
+.dates {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 3px;
+}
+
+.date {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f9fa;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.date:hover:not(.selected):not(.delete) {
+  background: #5fa7db;
+  transform: translateY(-2px);
+}
+
+.date.selected {
+  background: #28a745 !important;
+  color: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.date.delete {
+  background: #dc3545 !important;
+  color: white;
+}
+
+.date.check {
+  background: #007bff !important;
+  color: white;
+}
+
+.disabled {
+  pointer-events: none;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+.monthYear {
+  flex-grow: 1;
+  text-align: center;
+}
+
+#prevMonth,
+#nextMonth {
+  flex-shrink: 0;
+}
+
+.prevAndNext {
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+
+.hidden {
+  display: none !important;
+}
+
+
+.disabled-calendar {
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+/* Spinner style */
+.spinner-calendar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  border: 4px solid #ccc;
+  border-top: 4px solid #007bff;
+  /* màu xanh dương quay */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  display: block;
+  z-index: 10;
+}
+
+/* Animation xoay vòng */
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.calendar-loading {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: fit-content;
+  height: 40px;
+  color: #007bff;
+  font-weight: bold;
+  display: block;
+}
+
+
+/* === Table Styles === */
+.table-container {
+  height: 90%;
+  overflow-y: auto;
+}
+
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+
+.custom-table th {
+  background: #007bff;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  padding: 1.3rem;
+  text-align: center;
+}
+
+.custom-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.custom-table tr:hover td {
+  background: #bbdefb;
+  transform: scale(1.02);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.custom-table tbody tr:nth-child(even) {
+  background-color: #fffcfc;
+}
+
+/* Nút chuyển trang */
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  margin-top: 10px;
+  padding: 1rem;
+}
+
+.pagination button {
+  padding: 0.6rem 1rem;
+}
+
+/* Search and Select box */
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #f8f9fa;
+  padding: 6px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+}
+
+.search-box input {
+  flex: 1;
+  padding: 6px 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  padding: 1rem;
+}
+
+
+.search-box input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.search-box select {
+  flex: 1;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: white;
+  cursor: pointer;
+  appearance: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+.search-box select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.8rem center;
+  background-size: 12px;
+  padding-right: 2rem;
+  /* Tạo khoảng trống cho mũi tên */
+}
+
+.search-box select:hover {
+  border-color: #999;
+}
+
+.search-box select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+/* Style cho option */
+.search-box select option {
+  padding: 0.5rem;
+  background: white;
+}
+
+/* Style khi select được chọn */
+.search-box select option:checked {
+  background-color: #f0f7ff;
+  font-weight: 500;
+}
+
+
+
+.search-box button {
+  margin-top: 0px;
+  padding: 6px 10px;
+  /* giảm từ 10px 15px */
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  /* giảm từ 8px */
+  font-size: 15px;
+  /* giảm từ 16px */
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  padding: 0.9rem;
+}
+
+.search-box button:hover {
+  background: #0056b3;
+  transform: scale(1.05);
+}
+
+
+/* === Form Styles === */
+.formsua {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  display: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1000;
+}
+
+
+.formsua h3 {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  padding-bottom: 30px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.form-group label {
+  width: 100px;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group select {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.close-btn:hover {
+  color: red;
+  transform: rotate(90deg) scale(1.1);
+}
+
+.btluu {
+  width: 100%;
+  padding: 10px;
+  background-color: blue;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* === Button Styles === */
+/* Nút chung */
+button {
+  transition: all 0.2s ease;
+  cursor: pointer;
+  margin-top: 10px;
+  padding: 5px 10px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+
+
+button:not(:disabled):hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+#them {
+  background: #28a745;
+}
+
+#xoa {
+  background: #dc3545;
+}
+
+.calendar button {
+  padding: 0.6rem 1rem;
+  margin-top: 20px;
+}
+
+
+/* Chi Tiết/ Thêm/ Xoá BUTTON */
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+  /* margin-bottom: 15px; */
+}
+
+.button {
+  flex: 1;
+  text-align: center;
+  padding: 10px 15px;
+  background: #eee;
+  color: #007bff;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin: 0 5px;
+  white-space: nowrap;
+}
+
+.button:first-child {
+  flex: 1;
+}
+
+.button:hover,
+.button.active {
+  background: #0056b3;
+  color: white;
+}
+
+
+/* === Overlay === */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  z-index: 998;
+}
+
+
+/* === Responsive Adjustments === */
+@media (max-width: 1200px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+
+  .calendar-container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .left-container {
+    gap: 1rem;
+  }
+
+  .left-container div {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .calendar-container {
+    grid-template-columns: 1fr;
+  }
+}
