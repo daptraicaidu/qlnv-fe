@@ -16,9 +16,9 @@ async function Login() {
     const data = await response.json();
     localStorage.setItem('token', data.token);
     if (data.role === 'Admin') {
-      window.location.href = '/src/views/admin/index.html';
+      window.location.href = '/qlnv-fe/src/views/admin/index.html';
     } else if (data.role === 'NhanVien') {
-      window.location.href = '/src/views/employee/index.html';
+      window.location.href = '/qlnv-fe/src/views/employee/index.html';
     }
   } else {
     let result = await response.text();

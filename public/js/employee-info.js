@@ -111,5 +111,5 @@ async function Luu() {
 
 function logout() {
   localStorage.clear();
-  window.location.href = '/src/views/auth/login.html';
+  window.location.href = '/qlnv-fe/src/views/auth/login.html';
 }

@@ -585,7 +585,7 @@ async function TuChoiNghiPhep(maNhanVien, ngayLam) {
 
 function logout() {
   localStorage.clear();
-  window.location.href = '/src/views/auth/login.html';
+  window.location.href = '/qlnv-fe/src/views/auth/login.html';
 }
 fetchQuenCheckOutCD();
 fetchDangKyTangCaCD();
