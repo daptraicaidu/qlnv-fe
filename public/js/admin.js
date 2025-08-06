@@ -109,7 +109,7 @@ async function checkExistingDates1() {
     const formattedDate = `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
     if (month !== currentDate.getMonth() + 1) { return; }
 
-    const url = `http://thang689904-001-site1.jtempurl.com/api/admin/KiemTraNgay?ngayChamCong=${formattedDate}`;
+    const url = `https://emnhanvien.onrender.com/api/admin/KiemTraNgay?ngayChamCong=${formattedDate}`;
 
     const promise = fetch(url, {
       method: "GET",
@@ -344,7 +344,7 @@ async function submitSelectedDates() {
   for (const date of selectedArray) {
     const formattedDate = date.split('-').map(num => num.padStart(2, '0')).join('-');
     try {
-      const response = await fetch(`http://thang689904-001-site1.jtempurl.com/api/admin/tao-cham-cong?ngayChamCong=${formattedDate}`, {
+      const response = await fetch(`https://emnhanvien.onrender.com/api/admin/tao-cham-cong?ngayChamCong=${formattedDate}`, {
         method: "POST",
         headers: {
           "Authorization": `Bearer ${token}`,
@@ -381,7 +381,7 @@ async function deleteSelectedDates() {
   for (const date of selectedArray) {
     const formattedDate = date.split('-').map(num => num.padStart(2, '0')).join('-');
     try {
-      const response = await fetch(`http://thang689904-001-site1.jtempurl.com/api/admin/XoaChamCong?ngayChamCong=${formattedDate}`, {
+      const response = await fetch(`https://emnhanvien.onrender.com/api/admin/XoaChamCong?ngayChamCong=${formattedDate}`, {
         method: "POST",
         headers: {
           "Authorization": `Bearer ${token}`,
@@ -417,7 +417,7 @@ async function fetchChamCong(page) {
   let hoTen = document.getElementById("hoTen").value;
   let tangCa = document.getElementById("tinhTrangtangCa").value;
 
-  let url = `http://thang689904-001-site1.jtempurl.com/api/admin/KiemTraNgay?page=${page}&ngayChamCong=${selectedDate2}`;
+  let url = `https://emnhanvien.onrender.com/api/admin/KiemTraNgay?page=${page}&ngayChamCong=${selectedDate2}`;
   if (maNhanVien) url += `&maNhanVien=${maNhanVien}`;
   if (hoTen) url += `&hoTen=${hoTen}`;
   if (tangCa) url += `&tangCa=${tangCa}`;
@@ -520,7 +520,7 @@ async function luuChinhSua() {
   };
 
   try {
-    let response = await fetch(`http://thang689904-001-site1.jtempurl.com/api/admin/SuaChamCong?maChamCong=${MaCC}`, {
+    let response = await fetch(`https://emnhanvien.onrender.com/api/admin/SuaChamCong?maChamCong=${MaCC}`, {
       method: "PUT",
       headers: {
         "Authorization": `Bearer ${token}`,

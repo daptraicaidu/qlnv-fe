@@ -43,7 +43,7 @@ async function xacNhan() {
             };
 
             // Gọi API đổi mật khẩu
-            const response = await fetch(`http://thang689904-001-site1.jtempurl.com/api/NhanVien/change-password`, {
+            const response = await fetch(`https://emnhanvien.onrender.com/api/NhanVien/change-password`, {
                 method: "POST",
                 headers: {
                     "Authorization": `Bearer ${token}`,

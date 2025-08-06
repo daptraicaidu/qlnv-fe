@@ -39,7 +39,7 @@ async function fetchDangKyTangCaCD() {
   const token = localStorage.getItem("token");
 
   try {
-    const response = await fetch("http://thang689904-001-site1.jtempurl.com/api/admin/ChoDuyetDKTangCa", {
+    const response = await fetch("https://emnhanvien.onrender.com/api/admin/ChoDuyetDKTangCa", {
       method: "GET",
       headers: {
         "Authorization": `Bearer ${token}`, // Đính kèm token trong header
@@ -78,7 +78,7 @@ async function fetchDangKyTangCaDD() {
   const token = localStorage.getItem("token");
 
   try {
-    const response = await fetch("http://thang689904-001-site1.jtempurl.com/api/admin/DaDuyetDKTangCa", {
+    const response = await fetch("https://emnhanvien.onrender.com/api/admin/DaDuyetDKTangCa", {
       method: "GET",
       headers: {
         "Authorization": `Bearer ${token}`, // Đính kèm token trong header
@@ -116,7 +116,7 @@ async function fetchDangKyTangCaTC() {
   const token = localStorage.getItem("token");
 
   try {
-    const response = await fetch("http://thang689904-001-site1.jtempurl.com/api/admin/TuChoiDKTangCa", {
+    const response = await fetch("https://emnhanvien.onrender.com/api/admin/TuChoiDKTangCa", {
       method: "GET",
       headers: {
         "Authorization": `Bearer ${token}`, // Đính kèm token trong header
@@ -154,7 +154,7 @@ async function DuyetDKTangCa(maNhanVien, ngayLam) {
   const token = localStorage.getItem("token");
   let activeTab = document.querySelector(".tab.active");
   try {
-    const response = await fetch(`http://thang689904-001-site1.jtempurl.com/api/admin/DuyetDKTC?maNhanVien=${maNhanVien}&ngayChamCong=${ngayLam}`, {
+    const response = await fetch(`https://emnhanvien.onrender.com/api/admin/DuyetDKTC?maNhanVien=${maNhanVien}&ngayChamCong=${ngayLam}`, {
       method: "PUT",
       headers: {
         "Authorization": `Bearer ${token}`, // Đính kèm token trong header
@@ -187,7 +187,7 @@ async function TuChoiDKTangCa(maNhanVien, ngayLam) {
   const token = localStorage.getItem("token");
   let activeTab = document.querySelector(".tab.active");
   try {
-    const response = await fetch(`http://thang689904-001-site1.jtempurl.com/api/admin/TuChoiDKTC?maNhanVien=${maNhanVien}&ngayChamCong=${ngayLam}`, {
+    const response = await fetch(`https://emnhanvien.onrender.com/api/admin/TuChoiDKTC?maNhanVien=${maNhanVien}&ngayChamCong=${ngayLam}`, {
       method: "PUT",
       headers: {
         "Authorization": `Bearer ${token}`, // Đính kèm token trong header
@@ -220,7 +220,7 @@ async function fetchQuenCheckOutCD() {
   const token = localStorage.getItem("token");
 
   try {
-    const response = await fetch(`http://thang689904-001-site1.jtempurl.com/api/admin/ChoDuyetQCO`, {
+    const response = await fetch(`https://emnhanvien.onrender.com/api/admin/ChoDuyetQCO`, {
       method: "GET",
       headers: {
         "Authorization": `Bearer ${token}`, // Đính kèm token trong header
@@ -260,7 +260,7 @@ async function fetchQuenCheckOutDD() {
   const token = localStorage.getItem("token");
 
   try {
-    const response = await fetch(`http://thang689904-001-site1.jtempurl.com/api/admin/DaDuyetQCO`, {
+    const response = await fetch(`https://emnhanvien.onrender.com/api/admin/DaDuyetQCO`, {
       method: "GET",
       headers: {
         "Authorization": `Bearer ${token}`, // Đính kèm token trong header
@@ -299,7 +299,7 @@ async function fetchQuenCheckOutTC() {
   const token = localStorage.getItem("token");
 
   try {
-    const response = await fetch(`http://thang689904-001-site1.jtempurl.com/api/admin/TuChoiQCO`, {
+    const response = await fetch(`https://emnhanvien.onrender.com/api/admin/TuChoiQCO`, {
       method: "GET",
       headers: {
         "Authorization": `Bearer ${token}`, // Đính kèm token trong header
@@ -338,7 +338,7 @@ async function DuyetQCO(maNhanVien, ngayLam) {
   const token = localStorage.getItem("token");
   let activeTab = document.querySelector(".tab1.active");
   try {
-    const response = await fetch(`http://thang689904-001-site1.jtempurl.com/api/admin/DuyetQCO?maNhanVien=${maNhanVien}&ngayChamCong=${ngayLam}`, {
+    const response = await fetch(`https://emnhanvien.onrender.com/api/admin/DuyetQCO?maNhanVien=${maNhanVien}&ngayChamCong=${ngayLam}`, {
       method: "PUT",
       headers: {
         "Authorization": `Bearer ${token}`, // Đính kèm token trong header
@@ -372,7 +372,7 @@ async function TuChoiQCO(maNhanVien, ngayLam) {
   let activeTab = document.querySelector(".tab1.active");
 
   try {
-    const response = await fetch(`http://thang689904-001-site1.jtempurl.com/api/admin/TuChoiQCO?maNhanVien=${maNhanVien}&ngayChamCong=${ngayLam}`, {
+    const response = await fetch(`https://emnhanvien.onrender.com/api/admin/TuChoiQCO?maNhanVien=${maNhanVien}&ngayChamCong=${ngayLam}`, {
       method: "PUT",
       headers: {
         "Authorization": `Bearer ${token}`, // Đính kèm token trong header
@@ -404,7 +404,7 @@ async function fetchNghiPhepCD() {
   const token = localStorage.getItem("token");
 
   try {
-    const response = await fetch(`http://thang689904-001-site1.jtempurl.com/api/admin/ChoDuyetNghiPhep`, {
+    const response = await fetch(`https://emnhanvien.onrender.com/api/admin/ChoDuyetNghiPhep`, {
       method: "GET",
       headers: {
         "Authorization": `Bearer ${token}`, // Đính kèm token trong header
@@ -443,7 +443,7 @@ async function fetchNghiPhepDD() {
   const token = localStorage.getItem("token");
 
   try {
-    const response = await fetch(`http://thang689904-001-site1.jtempurl.com/api/admin/DaDuyetNghiPhep`, {
+    const response = await fetch(`https://emnhanvien.onrender.com/api/admin/DaDuyetNghiPhep`, {
       method: "GET",
       headers: {
         "Authorization": `Bearer ${token}`, // Đính kèm token trong header
@@ -482,7 +482,7 @@ async function fetchNghiPhepTC() {
   const token = localStorage.getItem("token");
 
   try {
-    const response = await fetch(`http://thang689904-001-site1.jtempurl.com/api/admin/TuChoiNghiPhep`, {
+    const response = await fetch(`https://emnhanvien.onrender.com/api/admin/TuChoiNghiPhep`, {
       method: "GET",
       headers: {
         "Authorization": `Bearer ${token}`, // Đính kèm token trong header
@@ -521,7 +521,7 @@ async function DuyetNghiPhep(maNhanVien, ngayLam) {
   const token = localStorage.getItem("token");
   let activeTab = document.querySelector(".tab2.active");
   try {
-    const response = await fetch(`http://thang689904-001-site1.jtempurl.com/api/admin/DuyetNghiPhep?maNhanVien=${maNhanVien}&ngayChamCong=${ngayLam}`, {
+    const response = await fetch(`https://emnhanvien.onrender.com/api/admin/DuyetNghiPhep?maNhanVien=${maNhanVien}&ngayChamCong=${ngayLam}`, {
       method: "PUT",
       headers: {
         "Authorization": `Bearer ${token}`, // Đính kèm token trong header
@@ -555,7 +555,7 @@ async function TuChoiNghiPhep(maNhanVien, ngayLam) {
   let activeTab = document.querySelector(".tab2.active");
 
   try {
-    const response = await fetch(`http://thang689904-001-site1.jtempurl.com/api/admin/TuChoiNghiPhep?maNhanVien=${maNhanVien}&ngayChamCong=${ngayLam}`, {
+    const response = await fetch(`https://emnhanvien.onrender.com/api/admin/TuChoiNghiPhep?maNhanVien=${maNhanVien}&ngayChamCong=${ngayLam}`, {
       method: "PUT",
       headers: {
         "Authorization": `Bearer ${token}`, // Đính kèm token trong header

@@ -25,7 +25,7 @@ async function loadNhanVien(page) {
   let maPhongBan = document.getElementById("maPhongBan").value;
   let chucvu = document.getElementById("chucvu").value.toLowerCase();
 
-  let url = `http://thang689904-001-site1.jtempurl.com/api/admin/nhanvien?page=${page}`;
+  let url = `https://emnhanvien.onrender.com/api/admin/nhanvien?page=${page}`;
   if (maNhanVien) url += `&maNhanVien=${maNhanVien}`;
   if (hoTen) url += `&hoTen=${hoTen}`;
   if (maPhongBan) url += `&maPhongBan=${maPhongBan}`;
@@ -129,7 +129,7 @@ async function themNhanVien() {
   };
 
   try {
-    let response = await fetch("http://thang689904-001-site1.jtempurl.com/api/admin/nhanvien", {
+    let response = await fetch("https://emnhanvien.onrender.com/api/admin/nhanvien", {
       method: "POST",
       headers: {
         "Authorization": `Bearer ${token}`,
@@ -211,7 +211,7 @@ async function luuChinhSua() {
   };
 
   try {
-    let response = await fetch(`http://thang689904-001-site1.jtempurl.com/api/admin/nhanvien/${MaNV}`, {
+    let response = await fetch(`https://emnhanvien.onrender.com/api/admin/nhanvien/${MaNV}`, {
       method: "PUT",
       headers: {
         "Authorization": `Bearer ${token}`,
@@ -242,7 +242,7 @@ async function xoa(maNhanVien) {
   const token = localStorage.getItem("token");
   if (confirm("Bạn có chắc chắn muốn xóa nhân viên này?")) {
     try {
-      const response = await fetch(`http://thang689904-001-site1.jtempurl.com/api/admin/nhanvien/${maNhanVien}`, {
+      const response = await fetch(`https://emnhanvien.onrender.com/api/admin/nhanvien/${maNhanVien}`, {
         method: "DELETE",
         headers: {
           "Authorization": `Bearer ${token}`, // Đính kèm token trong header

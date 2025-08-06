@@ -45,7 +45,7 @@ async function checkExistingDates() {
     const formattedDate = `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
     if (month !== currentDate.getMonth() + 1) { return; }
 
-    const url = `http://thang689904-001-site1.jtempurl.com/api/NhanVien/chamcong?ngayChamCong=${formattedDate}`;
+    const url = `https://emnhanvien.onrender.com/api/NhanVien/chamcong?ngayChamCong=${formattedDate}`;
 
     const promise = fetch(url, {
       method: "GET",
@@ -212,7 +212,7 @@ function logout() {
 async function formcong() {
   const token = localStorage.getItem("token");
 
-  const response = await fetch(`http://thang689904-001-site1.jtempurl.com/api/NhanVien/chamcong?ngayChamCong=${selectedDate2}`, {
+  const response = await fetch(`https://emnhanvien.onrender.com/api/NhanVien/chamcong?ngayChamCong=${selectedDate2}`, {
     method: "GET",
     headers: { "Authorization": `Bearer ${token}`, "Content-Type": "application/json" }
   });
@@ -237,7 +237,7 @@ async function checkIn() {
   let ngayChamCong = document.getElementById("ngayChamCong").value;
   const token = localStorage.getItem("token");
 
-  const response = await fetch(`http://thang689904-001-site1.jtempurl.com/api/NhanVien/CheckIn?ngayChamCong=${ngayChamCong}`, {
+  const response = await fetch(`https://emnhanvien.onrender.com/api/NhanVien/CheckIn?ngayChamCong=${ngayChamCong}`, {
     method: "PUT",
     headers: {
       "Authorization": `Bearer ${token}`,
@@ -259,7 +259,7 @@ async function checkOut() {
   let ngayChamCong = document.getElementById("ngayChamCong").value;
   const token = localStorage.getItem("token");
 
-  const response = await fetch(`http://thang689904-001-site1.jtempurl.com/api/NhanVien/CheckOut?ngayChamCong=${ngayChamCong}`, {
+  const response = await fetch(`https://emnhanvien.onrender.com/api/NhanVien/CheckOut?ngayChamCong=${ngayChamCong}`, {
     method: "PUT",
     headers: {
       "Authorization": `Bearer ${token}`,
@@ -281,7 +281,7 @@ async function dkTangCa() {
   let ngayChamCong = document.getElementById("ngayChamCong").value;
   const token = localStorage.getItem("token");
 
-  const response = await fetch(`http://thang689904-001-site1.jtempurl.com/api/NhanVien/DKTangCa?ngayChamCong=${ngayChamCong}`, {
+  const response = await fetch(`https://emnhanvien.onrender.com/api/NhanVien/DKTangCa?ngayChamCong=${ngayChamCong}`, {
     method: "POST",
     headers: {
       "Authorization": `Bearer ${token}`,
@@ -308,7 +308,7 @@ async function QuenCheckOut() {
   const token = localStorage.getItem("token");
   let liDo = document.getElementById("liDo2").value;
 
-  const response = await fetch(`http://thang689904-001-site1.jtempurl.com/api/NhanVien/QuenCheckOut?ngayChamCong=${ngayChamCong}&LiDo=${liDo}`, {
+  const response = await fetch(`https://emnhanvien.onrender.com/api/NhanVien/QuenCheckOut?ngayChamCong=${ngayChamCong}&LiDo=${liDo}`, {
     method: "POST",
     headers: {
       "Authorization": `Bearer ${token}`,
@@ -337,7 +337,7 @@ async function nghiPhep() {
   const token = localStorage.getItem("token");
   let liDo = document.getElementById("liDo1").value;
 
-  const response = await fetch(`http://thang689904-001-site1.jtempurl.com/api/NhanVien/XinNghiPhep?ngayChamCong=${ngayChamCong}&LiDo=${liDo}`, {
+  const response = await fetch(`https://emnhanvien.onrender.com/api/NhanVien/XinNghiPhep?ngayChamCong=${ngayChamCong}&LiDo=${liDo}`, {
     method: "POST",
     headers: {
       "Authorization": `Bearer ${token}`,

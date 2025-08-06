@@ -16,7 +16,7 @@ document.addEventListener('click', (event) => {
 async function loadLuong() {
     const token = localStorage.getItem("token");
 
-    const response = await fetch("http://thang689904-001-site1.jtempurl.com/api/NhanVien/luong", {
+    const response = await fetch("https://emnhanvien.onrender.com/api/NhanVien/luong", {
         method: "GET",
         headers: {
             "Authorization": `Bearer ${token}`, // Đính kèm token trong header
@@ -49,7 +49,7 @@ async function loadLuong() {
 async function chiTiet(thang, nam) {
     const token = localStorage.getItem("token");
 
-    const response = await fetch(`http://thang689904-001-site1.jtempurl.com/api/NhanVien/chiTietLuong?thang=${thang}&nam=${nam}`, {
+    const response = await fetch(`https://emnhanvien.onrender.com/api/NhanVien/chiTietLuong?thang=${thang}&nam=${nam}`, {
         method: "GET",
         headers: {
             "Authorization": `Bearer ${token}`, // Đính kèm token trong header

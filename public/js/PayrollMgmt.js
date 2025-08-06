@@ -35,7 +35,7 @@ async function loadLuong(page) {
     let thang = document.getElementById("thang").value;
     let nam = document.getElementById("nam").value.toLowerCase();
 
-    let url = `http://thang689904-001-site1.jtempurl.com/api/admin/luong?page=${page}`;
+    let url = `https://emnhanvien.onrender.com/api/admin/luong?page=${page}`;
     if (maNhanVien) url += `&maNhanVien=${maNhanVien}`;
     if (hoTen) url += `&hoTen=${hoTen}`;
     if (thang) url += `&thang=${thang}`;
@@ -83,7 +83,7 @@ async function loadLuong(page) {
 async function tinhLuong() {
     const token = localStorage.getItem("token");
 
-    const response = await fetch(`http://thang689904-001-site1.jtempurl.com/api/admin/TinhLuongThang`, {
+    const response = await fetch(`https://emnhanvien.onrender.com/api/admin/TinhLuongThang`, {
         method: "POST",
         headers: {
             "Authorization": `Bearer ${token}`,
@@ -116,7 +116,7 @@ function nextPage() {
 async function chiTiet(maNhanVien, thang, nam) {
     const token = localStorage.getItem("token");
 
-    const response = await fetch(`http://thang689904-001-site1.jtempurl.com/api/admin/chiTietLuong?maNhanVien=${maNhanVien}&thang=${thang}&nam=${nam}`, {
+    const response = await fetch(`https://emnhanvien.onrender.com/api/admin/chiTietLuong?maNhanVien=${maNhanVien}&thang=${thang}&nam=${nam}`, {
         method: "GET",
         headers: {
             "Authorization": `Bearer ${token}`, // Đính kèm token trong header

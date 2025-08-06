@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 async function loadQuyDinh() {
   try {
     const token = localStorage.getItem("token");
-    const response = await fetch("http://thang689904-001-site1.jtempurl.com/api/admin/quydinh", {
+    const response = await fetch("https://emnhanvien.onrender.com/api/admin/quydinh", {
       method: "GET",
       headers: {
         "Authorization": `Bearer ${token}`, // Đính kèm token trong header
@@ -77,7 +77,7 @@ async function Luu() {
   };
 
   try {
-    const response = await fetch("http://thang689904-001-site1.jtempurl.com/api/admin/quydinh", {
+    const response = await fetch("https://emnhanvien.onrender.com/api/admin/quydinh", {
       method: "PUT",
       headers: {
         "Authorization": `Bearer ${token}`,

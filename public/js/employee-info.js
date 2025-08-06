@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 async function loadForm() {
   const token = localStorage.getItem("token");
   try {
-    const response = await fetch("http://thang689904-001-site1.jtempurl.com/api/NhanVien/nhanvien", {
+    const response = await fetch("https://emnhanvien.onrender.com/api/NhanVien/nhanvien", {
       method: "GET",
       headers: {
         "Authorization": `Bearer ${token}`, // Đính kèm token trong header
@@ -88,7 +88,7 @@ async function Luu() {
   };
 
 
-  const response = await fetch("http://thang689904-001-site1.jtempurl.com/api/NhanVien/nhanvien", {
+  const response = await fetch("https://emnhanvien.onrender.com/api/NhanVien/nhanvien", {
     method: "PUT",
     headers: {
       "Authorization": `Bearer ${token}`,
