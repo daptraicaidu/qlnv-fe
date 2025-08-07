@@ -433,7 +433,6 @@ async function fetchChamCong(page) {
 
     if (!response.ok) {
       // Nếu có lỗi, hiển thị dòng thông báo
-      const tableBody = document.getElementById("luongTable");
       tableBody.innerHTML = `<tr><td colspan="9" style="text-align: center;">Không có dữ liệu chấm công</td></tr>`;
       return;
     } const data = await response.json();
@@ -443,8 +442,8 @@ async function fetchChamCong(page) {
 
     let tableBody = document.getElementById("luongTable");
     tableBody.innerHTML = "";
-
-    data.data.forEach(nv => {
+    
+    data.forEach(nv => {
       let row = `
                     <tr>
                         <td>${nv.maNhanVien}</td>
@@ -559,9 +558,7 @@ function logout() {
 }
 
 // Gọi API khi trang tải
-// document.addEventListener("DOMContentLoaded", fetchChamCong(1));
-document.addEventListener("DOMContentLoaded", () => fetchChamCong(1));
-
+document.addEventListener("DOMContentLoaded", fetchChamCong(1));
 
 renderCalendar();
 renderCalendar1();
